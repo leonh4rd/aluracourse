@@ -26,8 +26,8 @@ namespace linqtoxml
 					"</Movie>" +
 				"</Movies>";
 
-			//XmlDocument document = new XmlDocument();
-			//document.LoadXml(xml);
+			//XmlDocument xmlDocument = new XmlDocument();
+			//xmlDocument.Load("data/aluratunes.xml");
 
 			XDocument document = XDocument.Parse(xml);
 
