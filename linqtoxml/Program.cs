@@ -31,17 +31,43 @@ namespace linqtoxml
 
 			XDocument document = XDocument.Parse(xml);
 
+			Console.WriteLine("LINQ to XML");
+			Console.WriteLine();
+
 			IEnumerable<XElement> query =
 				from f in document.Descendants("Movie")
 				select f;
-
-			Console.WriteLine("LINQ to XML");
-			Console.WriteLine();
 
 			foreach (var item in query)
 			{
 				Console.WriteLine(item.Element("Director").FirstNode);
 				Console.WriteLine(item.Element("Title").FirstNode);
+			}
+
+			Console.WriteLine();
+
+			IEnumerable<XElement> query2 =
+				from f in document.Descendants("Movie")
+				//where f.Element("Director").FirstNode.ToString() == "James Cameron"
+				where (string)f.Element("Director") == "James Cameron"
+				select f;
+
+			foreach (var item in query2)	
+			{
+				Console.WriteLine( (string)item.Element("Director") );
+				Console.WriteLine( (string)item.Element("Title") );
+			}
+
+			Console.WriteLine();
+
+			IEnumerable<XElement> query3 =
+				document.Descendants("Movie")
+				.Where(element => (string)element.Element("Director") == "Quentin Tarantino");
+
+			foreach (var item in query3)
+			{
+				Console.WriteLine((string)item.Element("Director"));
+				Console.WriteLine((string)item.Element("Title"));
 			}
 
 			Console.ReadKey();
