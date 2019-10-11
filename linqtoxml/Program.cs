@@ -70,6 +70,35 @@ namespace linqtoxml
 				Console.WriteLine((string)item.Element("Title"));
 			}
 
+			Console.WriteLine();
+
+			XElement pulpFiction
+				= query
+				.Where(movie => (string)movie.Element("Title") == "Pulp Fiction")
+				.SingleOrDefault();
+
+			if (pulpFiction != null)
+			{
+				pulpFiction.Add(new XElement("Gender", "Drama"));
+			}
+
+			XElement avatar
+				= query
+				.Where(movie => (string)movie.Element("Title") == "Avatar")
+				.SingleOrDefault();
+
+			if (avatar != null)
+			{
+				avatar.Add(new XElement("Gender", "SciFi"));
+			}
+
+			foreach (var item in query)
+			{
+				Console.WriteLine((string)item.Element("Director"));
+				Console.WriteLine((string)item.Element("Title"));
+				Console.WriteLine((string)item.Element("Gender"));
+			}
+
 			Console.ReadKey();
 		}
 	}
