@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.779
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "linqtoxml", "linqtoxml\linqtoxml.csproj", "{F18D9459-5A98-44DC-9525-9387968D8025}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "filesystem", "filesystem\filesystem.csproj", "{5FE29F18-5569-4580-AF5D-513D0BCF55DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F18D9459-5A98-44DC-9525-9387968D8025}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F18D9459-5A98-44DC-9525-9387968D8025}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F18D9459-5A98-44DC-9525-9387968D8025}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FE29F18-5569-4580-AF5D-513D0BCF55DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FE29F18-5569-4580-AF5D-513D0BCF55DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FE29F18-5569-4580-AF5D-513D0BCF55DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FE29F18-5569-4580-AF5D-513D0BCF55DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
