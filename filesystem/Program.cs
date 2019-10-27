@@ -9,7 +9,7 @@ namespace filesystem
 {
 	class Program
 	{
-		static void Main(string[] args)
+		static void XMain(string[] args)
 		{
 			//.Open file
 			//.Read 10 bytes
