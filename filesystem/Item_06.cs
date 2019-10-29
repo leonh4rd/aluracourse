@@ -9,7 +9,7 @@ namespace filesystem
 {
 	class Item_06
 	{
-		static void Main(string[] args)
+		static void XMain(string[] args)
 		{
 			//Stream exceptions
 			try
