@@ -11,7 +11,7 @@ namespace filesystem
 	{
 		private const string FileName = "arquivo.txt";
 
-		static void Main(string[] args)
+		static void XMain(string[] args)
 		{
 			//Record data in a text file
 			//Get information about the file:
