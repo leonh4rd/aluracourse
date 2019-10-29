@@ -9,7 +9,7 @@ namespace filesystem
 {
 	class ExLendoDocumento
 	{
-		static void Main(string[] args)
+		static void XMain(string[] args)
 		{
 			var fs = new FileStream("teste.txt", FileMode.Open);
 
