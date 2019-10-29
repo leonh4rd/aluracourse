@@ -9,7 +9,7 @@ namespace filesystem
 {
 	class Item_05
 	{
-		static void Main()
+		static void XMain()
 		{
 			string filePath = "arquivo.txt";
 
