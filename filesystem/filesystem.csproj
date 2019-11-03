@@ -51,6 +51,7 @@
     <Compile Include="Item_08.cs" />
     <Compile Include="Item_09.cs" />
     <Compile Include="Item_10.cs" />
+    <Compile Include="Item__11.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Program2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
