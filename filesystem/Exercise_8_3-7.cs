@@ -9,7 +9,7 @@ namespace filesystem
 {
 	class Exercise_8_3_7
 	{
-		static void Main(string[] args)
+		static void XMain(string[] args)
 		{
 			using (var stream = Console.OpenStandardInput())
 			using (var filestream = new FileStream("doconsole.txt", FileMode.Create))
