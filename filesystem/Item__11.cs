@@ -9,7 +9,7 @@ namespace filesystem
 {
 	class Item__11
 	{
-		static void Main(string[] args)
+		static void XMain(string[] args)
 		{
 			//Find path of My Documents directory
 			//Combine path of My Documents to  file alunos.txt
