@@ -11,7 +11,7 @@ namespace filesystem
 	{
 		private const string directory = "New Directory";
 
-		static void Main(string[] args)
+		static void XMain(string[] args)
 		{
 			//Create a directory
 			//Verify if its created
