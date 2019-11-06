@@ -6,7 +6,7 @@ namespace web
 {
 	class Program
 	{
-		static void Main(string[] args)
+		static void XMain(string[] args)
 		{
 			// Tarefas de WebRequest
 			// Conectar ao site Caelum (http://www.caelum.com.br)
