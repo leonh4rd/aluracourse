@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "linqtoxml", "linqtoxml\linq
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "filesystem", "filesystem\filesystem.csproj", "{5FE29F18-5569-4580-AF5D-513D0BCF55DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "web", "web\web.csproj", "{09F90949-5750-418A-862A-988050715566}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5FE29F18-5569-4580-AF5D-513D0BCF55DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FE29F18-5569-4580-AF5D-513D0BCF55DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5FE29F18-5569-4580-AF5D-513D0BCF55DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09F90949-5750-418A-862A-988050715566}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09F90949-5750-418A-862A-988050715566}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09F90949-5750-418A-862A-988050715566}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09F90949-5750-418A-862A-988050715566}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
