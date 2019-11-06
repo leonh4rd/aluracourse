@@ -8,7 +8,7 @@ namespace web
 {
 	class Item_16
 	{
-		static async Task Main(string[] args)
+		static async Task XMain(string[] args)
 		{
 			// Tarefas de WebRequest
 			// Conectar ao site Caelum (http://www.caelum.com.br)
