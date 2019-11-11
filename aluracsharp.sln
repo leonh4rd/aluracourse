@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForm_Item_17", "WinForm_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "database", "database\database.csproj", "{62BB2661-5DE4-4139-B915-4EF39E84CFC5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xml_jason", "xml_jason\xml_jason.csproj", "{1835CA05-98CE-4A84-947B-617DF793B65C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{62BB2661-5DE4-4139-B915-4EF39E84CFC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62BB2661-5DE4-4139-B915-4EF39E84CFC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62BB2661-5DE4-4139-B915-4EF39E84CFC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1835CA05-98CE-4A84-947B-617DF793B65C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1835CA05-98CE-4A84-947B-617DF793B65C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1835CA05-98CE-4A84-947B-617DF793B65C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1835CA05-98CE-4A84-947B-617DF793B65C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

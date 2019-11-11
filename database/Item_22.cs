@@ -19,7 +19,7 @@ namespace database
 												TrustServerCertificate=False;
 												ApplicationIntent=ReadWrite;
 												MultiSubnetFailover=False";
-		static async Task Main(string[] args)
+		static async Task XMain(string[] args)
 		{
 			await CreateDBAsync();
 
