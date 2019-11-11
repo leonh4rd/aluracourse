@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace database
 {
-	class Item_19
+	class Item_21
 	{
 		private const string DatabaseServer = @"(localdb)\MSSQLLocalDB";
 		private const string MasterDatabase = "master";
@@ -17,37 +19,45 @@ namespace database
 												TrustServerCertificate=False;
 												ApplicationIntent=ReadWrite;
 												MultiSubnetFailover=False";
-
 		static async Task XMain(string[] args)
 		{
 			await CreateDBAsync();
 
-			//Abrir conexão com banco de dados
-			//Criar uma consulta para  trazer Diretor e Título do filme
-			//Ler e exibir os resultados da consulta
-
 			using (var connection = new SqlConnection(ConnectionString))
 			{
-				await connection.OpenAsync();
+				connection.Open();
 
-				string query = @"SELECT d.Nome AS Diretor, f.Titulo
-							FROM Filmes AS f
-							INNER JOIN Diretores AS d
-							ON f.DiretorId = d.Id";
+				//Mudar o nome do diretor Quentin Tarantino
+				//Contar quantas entradas foram atualizadas
+
+				string query = @"UPDATE Diretores SET Nome='Quentin Tarantino'
+								WHERE Id = 1";
 				using (var command = new SqlCommand(query, connection))
 				{
-					var reader = await command.ExecuteReaderAsync();
-
-					while (await reader.ReadAsync())
-					{
-						var director = reader["Diretor"];
-						var moviestitle = reader["Titulo"];
-						Console.WriteLine($"Diretor: {director} - Título: {moviestitle}");
-					}
+					var changes = await command.ExecuteNonQueryAsync();
+					Console.WriteLine("Número de linhas atualizadas: {0}", changes);
 				}
+				await PrintMovies(connection);
 			}
 
 			Console.ReadKey();
+		}
+
+		static async Task PrintMovies(SqlConnection connection)
+		{
+			string query = @"SELECT d.Nome AS Diretor, f.Titulo
+							FROM Filmes AS f
+							INNER JOIN Diretores AS d
+							ON f.DiretorId = d.Id";
+			SqlCommand command = new SqlCommand(query, connection);
+			SqlDataReader reader = command.ExecuteReader();
+			while (await reader.ReadAsync())
+			{
+				var director = reader["Diretor"].ToString();
+				var movietitle = reader["Titulo"].ToString();
+				Console.WriteLine("Diretor: {0} - Título: {1}", director, movietitle);
+			}
+			reader.Close();
 		}
 
 		private static async Task CreateDBAsync()
@@ -86,7 +96,7 @@ namespace database
 		private static async Task InsertDataAsync()
 		{
 			string sql = @"
-                    INSERT Diretores (Nome) VALUES ('Quentin Tarantino');
+                    INSERT Diretores (Nome) VALUES ('Quentin Jerome Tarantino');
                     INSERT Diretores (Nome) VALUES ('James Cameron');
                     INSERT Diretores (Nome) VALUES ('Tim Burton');
 
@@ -122,7 +132,8 @@ namespace database
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex.ToString());
-			}finally
+			}
+			finally
 			{
 				if (connection.State == System.Data.ConnectionState.Open)
 				{

@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace database
 {
-	class Item_19
+	class Item_22
 	{
 		private const string DatabaseServer = @"(localdb)\MSSQLLocalDB";
 		private const string MasterDatabase = "master";
@@ -17,37 +19,48 @@ namespace database
 												TrustServerCertificate=False;
 												ApplicationIntent=ReadWrite;
 												MultiSubnetFailover=False";
-
-		static async Task XMain(string[] args)
+		static async Task Main(string[] args)
 		{
 			await CreateDBAsync();
 
-			//Abrir conexão com banco de dados
-			//Criar uma consulta para  trazer Diretor e Título do filme
-			//Ler e exibir os resultados da consulta
-
 			using (var connection = new SqlConnection(ConnectionString))
 			{
-				await connection.OpenAsync();
+				connection.Open();
+				await PrintMovies(connection);
 
-				string query = @"SELECT d.Nome AS Diretor, f.Titulo
-							FROM Filmes AS f
-							INNER JOIN Diretores AS d
-							ON f.DiretorId = d.Id";
-				using (var command = new SqlCommand(query, connection))
-				{
-					var reader = await command.ExecuteReaderAsync();
+				//Evitar técnica de SQL Injection
+				Console.Write("Digite o Id do filme a ser alterado: ");
+				string filmeId = Console.ReadLine();
+				Console.Write("Digite o novo título do filme: ");
+				string novoTitulo = Console.ReadLine();
+				string query = "UPDATE Filmes SET Titulo=@NEWTITLE WHERE Id=@MOVIEID";
+				SqlCommand command = new SqlCommand(query, connection);
+				command.Parameters.AddWithValue("@NEWTITLE", novoTitulo);
+				command.Parameters.AddWithValue("@MOVIEID", filmeId);
+				int result = command.ExecuteNonQuery();
 
-					while (await reader.ReadAsync())
-					{
-						var director = reader["Diretor"];
-						var moviestitle = reader["Titulo"];
-						Console.WriteLine($"Diretor: {director} - Título: {moviestitle}");
-					}
-				}
+				Console.WriteLine("Número de linhas alteradas: {0}", result);
+				await PrintMovies(connection);
 			}
 
 			Console.ReadKey();
+		}
+
+		static async Task PrintMovies(SqlConnection connection)
+		{
+			string query = @"SELECT d.Nome AS Diretor, f.Titulo
+							FROM Filmes AS f
+							INNER JOIN Diretores AS d
+							ON f.DiretorId = d.Id";
+			SqlCommand command = new SqlCommand(query, connection);
+			SqlDataReader reader = command.ExecuteReader();
+			while (await reader.ReadAsync())
+			{
+				var director = reader["Diretor"].ToString();
+				var movietitle = reader["Titulo"].ToString();
+				Console.WriteLine("Diretor: {0} - Título: {1}", director, movietitle);
+			}
+			reader.Close();
 		}
 
 		private static async Task CreateDBAsync()
@@ -86,7 +99,7 @@ namespace database
 		private static async Task InsertDataAsync()
 		{
 			string sql = @"
-                    INSERT Diretores (Nome) VALUES ('Quentin Tarantino');
+                    INSERT Diretores (Nome) VALUES ('Quentin Jerome Tarantino');
                     INSERT Diretores (Nome) VALUES ('James Cameron');
                     INSERT Diretores (Nome) VALUES ('Tim Burton');
 
@@ -95,7 +108,7 @@ namespace database
                     INSERT Filmes (DiretorId, Titulo, Ano, Minutos) VALUES (1, 'Kill Bill Volume 1', 2003,	111);
                     INSERT Filmes (DiretorId, Titulo, Ano, Minutos) VALUES (2, 'Avatar', 2009,	162);
                     INSERT Filmes (DiretorId, Titulo, Ano, Minutos) VALUES (2, 'Titanic', 1997,	194);
-                    INSERT Filmes (DiretorId, Titulo, Ano, Minutos) VALUES (2, 'O Exterminador do Futuro', 1984,	107);
+                    INSERT Filmes (DiretorId, Titulo, Ano, Minutos) VALUES (2, 'O Exterminador', 1984,	107);
                     INSERT Filmes (DiretorId, Titulo, Ano, Minutos) VALUES (3, 'O Estranho Mundo de Jack', 1993,	76);
                     INSERT Filmes (DiretorId, Titulo, Ano, Minutos) VALUES (3, 'Alice no País das Maravilhas', 2010,	108);
                     INSERT Filmes (DiretorId, Titulo, Ano, Minutos) VALUES (3, 'A Noiva Cadáver', 2005,	77);
@@ -122,7 +135,8 @@ namespace database
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex.ToString());
-			}finally
+			}
+			finally
 			{
 				if (connection.State == System.Data.ConnectionState.Open)
 				{
