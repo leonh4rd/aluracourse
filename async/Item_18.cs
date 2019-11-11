@@ -8,7 +8,7 @@ namespace async
 {
 	class Item_18
 	{
-		static async Task Main(string[] args)
+		static async Task XMain(string[] args)
 		{
 			//Capturar exceção gerado pelo método assíncrono
 
