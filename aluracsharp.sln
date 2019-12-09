@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "async", "async\async.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForm_Item_17", "WinForm_Item_17\WinForm_Item_17.csproj", "{0A9F6444-27B8-4791-9B3A-F37AA7381BAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "database", "database\database.csproj", "{62BB2661-5DE4-4139-B915-4EF39E84CFC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "database", "database\database.csproj", "{62BB2661-5DE4-4139-B915-4EF39E84CFC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xml_jason", "xml_jason\xml_jason.csproj", "{1835CA05-98CE-4A84-947B-617DF793B65C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "xml_jason", "xml_jason\xml_jason.csproj", "{1835CA05-98CE-4A84-947B-617DF793B65C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wcf", "wcf\wcf.csproj", "{1B4A5990-B205-48A5-9F2E-7EF3F55416A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{1835CA05-98CE-4A84-947B-617DF793B65C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1835CA05-98CE-4A84-947B-617DF793B65C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1835CA05-98CE-4A84-947B-617DF793B65C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B4A5990-B205-48A5-9F2E-7EF3F55416A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B4A5990-B205-48A5-9F2E-7EF3F55416A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B4A5990-B205-48A5-9F2E-7EF3F55416A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B4A5990-B205-48A5-9F2E-7EF3F55416A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

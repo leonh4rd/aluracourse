@@ -7,7 +7,7 @@ namespace xml_jason
 {
 	class Item_25
 	{
-		static async Task Main(string[] args)
+		static async Task XMain(string[] args)
 		{
 			//Consultar dados de um CEP no serviço da http://viacep.com.br e exibir os dados
 			string cep = "21240110";
